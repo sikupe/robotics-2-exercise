@@ -1,0 +1,11 @@
+# - this file is just a simple csv file
+# - lines starting with # are ignored and treated as comments
+# - the first column represents the time of the model configuration
+# - the other columns represents the values of the degress of freedom at this time
+# - angles are specified in radians
+# - to find out the order of dof use the rbdl_luamodel_util command provided by rbdl
+0., -1., -0.51, -0.34, 0.51, 0., 0.51, -0.51
+0.5, -0.5, -0.17, -0.08, 0.17, 0., 0.17, -0.17
+1., 0., 0., 0., 0., 0., 0., 0.
+1.5, 0.5, 0.17, 0., -0.17, -0.08, -0.17, 0.17
+2., 1., 0.51, 0., -0.51, -0.34, -0.51, 0.51
