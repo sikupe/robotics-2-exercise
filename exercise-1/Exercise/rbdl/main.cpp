@@ -17,8 +17,8 @@ int main(int argc, char *argv[]) {
 
 	//Initial values
 	Model humanoid;
-    //Load your model 
-
+    //Load your model
+    RigidBodyDynamics::Addons::LuaModelReadFromFile("humanoid_model.lua", &humanoid);
 
 	//prepare data structures and compute CoM
 	double mass;
