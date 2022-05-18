@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Sheet02MORMS14"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\CMake\;CMake Files\CMake\modules\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/simon/dev/projects/exercise-2/IVP"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ASSIGNMENT1">
+				<Option output="/home/simon/dev/projects/exercise-2/IVP/assigment_1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/simon/dev/projects/exercise-2/IVP"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/simon/dev/projects/exercise-2/IVP/src"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 ASSIGNMENT1"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ASSIGNMENT1/fast">
+				<Option output="/home/simon/dev/projects/exercise-2/IVP/assigment_1" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/simon/dev/projects/exercise-2/IVP"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/simon/dev/projects/exercise-2/IVP/src"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 ASSIGNMENT1/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ASSIGNMENT2">
+				<Option output="/home/simon/dev/projects/exercise-2/IVP/assigment_2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/simon/dev/projects/exercise-2/IVP"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/simon/dev/projects/exercise-2/IVP/src"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 ASSIGNMENT2"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ASSIGNMENT2/fast">
+				<Option output="/home/simon/dev/projects/exercise-2/IVP/assigment_2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/simon/dev/projects/exercise-2/IVP"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/simon/dev/projects/exercise-2/IVP/src"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 ASSIGNMENT2/fast"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/simon/dev/projects/exercise-2/IVP"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/simon/dev/projects/exercise-2/IVP"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -f &quot;/home/simon/dev/projects/exercise-2/IVP/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/simon/dev/projects/exercise-2/IVP/src/main_2.1.cc">
+			<Option target="ASSIGNMENT1"/>
+		</Unit>
+		<Unit filename="/home/simon/dev/projects/exercise-2/IVP/src/main_2.2.cc">
+			<Option target="ASSIGNMENT2"/>
+		</Unit>
+		<Unit filename="/home/simon/dev/projects/exercise-2/IVP/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/simon/dev/projects/exercise-2/IVP/CMake/modules/copySrc.cmake">
+			<Option virtualFolder="CMake Files\CMake\modules\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

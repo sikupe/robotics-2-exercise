@@ -53,19 +53,19 @@ VectorNd rhs_func (double t, const VectorNd &y) {
 	VectorNd res (VectorNd::Zero(dim));
 
     //insert rhs
-	res[0] = ___;
+//	res[0] = ___;
 
 	return res;
 }
 
 VectorNd rk4_integrator (const double t, const VectorNd &y, const double h, rhsFuncPtr rhs) {
     //implement rk4_integrator
-	return ___;
+//	return ___;
 }
 
 VectorNd euler_integrator (const double t, const VectorNd &y, const double h, rhsFuncPtr rhs) {
     //implement euler_integrator
-	return ___;
+//	return ___;
 }
 double exact (double t) {
 	return 1. / (1. + 100 * t * t);
