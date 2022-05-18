@@ -75,8 +75,7 @@ int main(int argc, char *argv[]) {
     const auto& pelvis_target_pos = zero;
     const auto& right_thigh_target_pos = CalcBodyToBaseCoordinates(humanoid, q, r_thigh_id, zero, false);
     const auto& left_thigh_target_pos = CalcBodyToBaseCoordinates(humanoid, q, l_thigh_id, zero, false);
-    const auto& right_foot_pos = CalcBodyToBaseCoordinates(humanoid, q, r_foot_id, zero, false);
-    const auto& right_foot_target_pos = RigidBodyDynamics::Math::Vector3d(right_foot_pos[0], right_foot_pos[1], right_foot_pos[2]);
+    const auto& right_foot_target_pos = CalcBodyToBaseCoordinates(humanoid, q, r_foot_id, zero, false);
     const auto& left_foot_target_pos = CalcBodyToBaseCoordinates(humanoid, q, l_foot_id, zero, false);
 
     std::cout << "Right foot target position: " << right_foot_target_pos.transpose() << std::endl;
@@ -89,7 +88,7 @@ int main(int argc, char *argv[]) {
 //    CS.AddPointConstraintXY(r_thigh_id, zero, right_thigh_target_pos);
 //    CS.AddPointConstraintXY(l_thigh_id, zero, left_thigh_target_pos);
     CS.AddPointConstraint(r_foot_id, zero, right_foot_target_pos);
-//    CS.AddFullConstraint(l_foot_id, zero, left_foot_target_pos, foot_target_orientation);
+    CS.AddPointConstraint(l_foot_id, zero, left_foot_target_pos);
 
     //Prepare animation output
     std::ofstream of("animation.csv");
