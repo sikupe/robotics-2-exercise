@@ -42,10 +42,10 @@ foot_m = 1.0
 
 -- add other bodies
 pelvis    = { mass = pelvis_m, com = { 0.0, 0.0, pelvis_h / 2 }, inertia = get_box_inertia(pelvis_m, pelvis_w, pelvis_h, pelvis_d) }
-base_link = { mass = base_m, com = ___, inertia = get_box_inertia(pelvis_m, pelvis_w, pelvis_h, pelvis_d) }
-thigh     = { mass = upper_leg_m, com = ___, inertia = get_box_inertia(upper_leg_m, upper_leg_w, upper_leg_h, upper_leg_d) }
-shank     = { mass = upper_leg_m, com = ___, inertia = get_box_inertia(lower_leg_m, lower_leg_w, lower_leg_h, lower_leg_d) }
-foot      = { mass = upper_leg_m, com = ___, inertia = get_box_inertia(foot_m, foot_w, foot_h, foot_d) }
+base_link = { mass = base_m, com = { 0, 0, 0 }, inertia = get_box_inertia(pelvis_m, pelvis_w, pelvis_h, pelvis_d) }
+thigh     = { mass = upper_leg_m, com = { 0, 0, -upper_leg_h / 2 }, inertia = get_box_inertia(upper_leg_m, upper_leg_w, upper_leg_h, upper_leg_d) }
+shank     = { mass = upper_leg_m, com = { 0, 0, -lower_leg_h / 2 }, inertia = get_box_inertia(lower_leg_m, lower_leg_w, lower_leg_h, lower_leg_d) }
+foot      = { mass = upper_leg_m, com = { 0, 0, -foot_h / 2 }, inertia = get_box_inertia(foot_m, foot_w, foot_h, foot_d) }
 
 
 -- add more meshes
@@ -147,7 +147,7 @@ model = {
       parent = "ROOT",
       body = bodies.base_link,
       joint_frame = {
-        r = { 0.0, 0.0, upper_leg_h + lower_leg_h + foot_h},
+        r = { 0.0, 0.0, upper_leg_h + lower_leg_h + foot_h },
       },
       joint = joints.floating_base,
       visuals = { meshes.Base }
@@ -189,7 +189,6 @@ model = {
     {
       name = "ankle_right",
       parent = "shank_right",
-      body = bodies.foot_right,
       joint = joints.rotational_xy,
       joint_frame = {
         r = { 0, 0, -lower_leg_h },
@@ -229,7 +228,6 @@ model = {
     {
       name = "ankle_left",
       parent = "shank_left",
-      body = bodies.foot_left,
       joint = joints.rotational_xy,
       joint_frame = {
         r = { 0, 0, -lower_leg_h },
