@@ -8,13 +8,14 @@
 
 using namespace std;
 
-typedef VectorNd (*rhsFuncPtr) (const double, const VectorNd&);
-typedef VectorNd (*integratorFuncPtr) (const double, const VectorNd&, const double, rhsFuncPtr);
+typedef VectorNd (*rhsFuncPtr)(const double, const VectorNd &);
+
+typedef VectorNd (*integratorFuncPtr)(const double, const VectorNd &, const double, rhsFuncPtr);
 
 /** \brief Delete all contents of an existing file, i.e. truncate it so
  * that it is empty. */
-void reset_file (const char *filename) {
-    ofstream output_file (filename, ios::trunc);
+void reset_file(const char *filename) {
+    ofstream output_file(filename, ios::trunc);
 
     if (!output_file) {
         cerr << "Error: could not reset file " << filename << "." << endl;
@@ -25,8 +26,8 @@ void reset_file (const char *filename) {
 }
 
 /** \brief Open and append data to the end of the file */
-void append_data (const char *filename, double t, const VectorNd &values) {
-    ofstream output_file (filename, ios::app);
+void append_data(const char *filename, double t, const VectorNd &values) {
+    ofstream output_file(filename, ios::app);
 
     if (!output_file) {
         cerr << "Error: could not open file " << filename << "." << endl;
@@ -46,11 +47,11 @@ void append_data (const char *filename, double t, const VectorNd &values) {
     output_file.close();
 }
 
-VectorNd rhs_func (double t, const VectorNd &y) {
+VectorNd rhs_func(double t, const VectorNd &y) {
     assert (y.size() == 1);
 
     unsigned int dim = y.size();
-    VectorNd res (VectorNd::Zero(dim));
+    VectorNd res(VectorNd::Zero(dim));
 
     //insert rhs
     res[0] = -200 * t * y[0] * y[0];
@@ -58,27 +59,34 @@ VectorNd rhs_func (double t, const VectorNd &y) {
     return res;
 }
 
-VectorNd rk4_integrator (const double t, const VectorNd &y, const double h, rhsFuncPtr rhs) {
+VectorNd rk4_integrator(const double t, const VectorNd &y, const double h, rhsFuncPtr rhs) {
     //implement rk4_integrator
-    //	return ___;
+    auto vector = VectorNd(1);
+    vector[0] = y[0];
+    auto k_1 = rhs(t, vector);
+    auto k_2 = rhs(t + 0.5 * h, vector + 0.5 * h * k_1);
+    auto k_3 = rhs(t + 0.5 * h, vector + 0.5 * h * k_2);
+    auto k_4 = rhs(t + h, vector + h * k_3);
+    return (1. / 6.) * (k_1 + 2. * k_2 + 2. * k_3 + k_4);
 }
 
-VectorNd euler_integrator (const double t, const VectorNd &y, const double h, rhsFuncPtr rhs) {
+VectorNd euler_integrator(const double t, const VectorNd &y, const double h, rhsFuncPtr rhs) {
     //implement euler_integrator
     auto vector = VectorNd(1);
     vector[0] = y[0];
     return rhs(t, vector);
 }
 
-double exact (double t) {
+double exact(double t) {
     return 1. / (1. + 100 * t * t);
 }
 
-VectorNd simulate (const double t0, const VectorNd &y0, const double tf, const double h, rhsFuncPtr rhs, integratorFuncPtr integrator, const string foutput) {
+VectorNd simulate(const double t0, const VectorNd &y0, const double tf, const double h, rhsFuncPtr rhs,
+                  integratorFuncPtr integrator, const string foutput) {
     double t = t0;
     VectorNd y = y0;
     VectorNd y_out = VectorNd::Zero(2);
-    reset_file (foutput.c_str());
+    reset_file(foutput.c_str());
 
     y_out[0] = y[0];
     while (t < tf) {
@@ -90,7 +98,7 @@ VectorNd simulate (const double t0, const VectorNd &y0, const double tf, const d
         y_out[1] = exact(t);
 
         // save data
-        append_data (foutput.c_str(), t, y_out);
+        append_data(foutput.c_str(), t, y_out);
 
         t += h;
     }
@@ -99,8 +107,8 @@ VectorNd simulate (const double t0, const VectorNd &y0, const double tf, const d
 }
 
 
-int main(int argc, char* argv[]) {
-    VectorNd y0 (VectorNd::Zero(1));
+int main(int argc, char *argv[]) {
+    VectorNd y0(VectorNd::Zero(1));
     VectorNd yf;
 
     double t0 = -3.;
@@ -109,10 +117,11 @@ int main(int argc, char* argv[]) {
 
     for (int i = 2; i < 7; i++) {
         stringstream outputfileStr;
-        outputfileStr << "output-1-" << i << ".csv";
-        double h = pow (10, -i);
-        yf = simulate (t0, y0, tf, h, rhs_func, euler_integrator, outputfileStr.str());
-        cout << "h = " << h << "\teta(tf) = " << yf[0] << "\ty(tf) = " << exact(tf) << "\terror = " << yf[0] - exact(tf) << endl;
+        outputfileStr << "output-2-" << i << ".csv";
+        double h = pow(10, -i);
+        yf = simulate(t0, y0, tf, h, rhs_func, rk4_integrator, outputfileStr.str());
+        cout << "h = " << h << "\teta(tf) = " << yf[0] << "\ty(tf) = " << exact(tf) << "\terror = " << yf[0] - exact(tf)
+             << endl;
     }
 
     return 0;
