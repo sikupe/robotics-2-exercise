@@ -50,9 +50,9 @@ int main(int argc, char *argv[]) {
     std::cout << humanoid.IsBodyId(l_foot_id) << std::endl;
 
     //compute kinematics
-    auto l_foot = RigidBodyDynamics::CalcBodyToBaseCoordinates(humanoid, q, l_foot_id, zero, false);
-    auto r_foot = RigidBodyDynamics::CalcBodyToBaseCoordinates(humanoid, q, r_foot_id, zero, false);
-    auto pelv = RigidBodyDynamics::CalcBodyToBaseCoordinates(humanoid, q, pelv_id, zero, false);
+    auto l_foot = RigidBodyDynamics::CalcBodyToBaseCoordinates(humanoid, q, l_foot_id, zero);
+    auto r_foot = RigidBodyDynamics::CalcBodyToBaseCoordinates(humanoid, q, r_foot_id, zero);
+    auto pelv = RigidBodyDynamics::CalcBodyToBaseCoordinates(humanoid, q, pelv_id, zero);
 
     std::cout << "The humanoid robot has " << dof << " degrees of freedom and ways " << mass << " kilograms"
               << std::endl;
@@ -69,26 +69,29 @@ int main(int argc, char *argv[]) {
     VectorNd q_init(VectorNd::Zero(humanoid.dof_count));
 
     // Prepare data structures for Inverse kinematics
-    // ---> CODE missing
+    q_init[12] = 0.2;
+    q_init[18] = 0.2;
 
     // Hint: unsigned int pelvis = CS.AddFullConstraint(....)
-    const auto& pelvis_target_pos = zero;
-    const auto& right_thigh_target_pos = CalcBodyToBaseCoordinates(humanoid, q, r_thigh_id, zero, false);
-    const auto& left_thigh_target_pos = CalcBodyToBaseCoordinates(humanoid, q, l_thigh_id, zero, false);
-    const auto& right_foot_target_pos = CalcBodyToBaseCoordinates(humanoid, q, r_foot_id, zero, false);
-    const auto& left_foot_target_pos = CalcBodyToBaseCoordinates(humanoid, q, l_foot_id, zero, false);
+    Vector3d right_foot_target_pos = Vector3d(0., -0.25, 0.);
+    Vector3d left_foot_target_pos = Vector3d(0., 0.25, 0.);
+    Vector3d pelvis_target_pos = Vector3d(0., 0., 0.6);
 
+    Matrix3d right_foot_target_orientation = Matrix3dIdentity;
+    Matrix3d left_foot_target_orientation = Matrix3dIdentity;
+
+
+    std::cout << "Pelvis position: " << pelvis_target_pos.transpose() << std::endl;
     std::cout << "Right foot target position: " << right_foot_target_pos.transpose() << std::endl;
+    std::cout << "Left foot target position: " << left_foot_target_pos.transpose() << std::endl;
 
-    auto pelvis_target_orientation = RigidBodyDynamics::Math::Matrix3d(0, -1, 0, 1, 0, 0, 0, 0, 1);
-    auto foot_target_orientation = RigidBodyDynamics::Math::Matrix3dIdentity;
+    Matrix3d pelvis_target_orientation = RigidBodyDynamics::Math::Matrix3d(0, -1, 0, 1, 0, 0, 0, 0, 1);
+    Matrix3d foot_target_orientation = RigidBodyDynamics::Math::Matrix3dIdentity;
 
-    auto pelvis = CS.AddFullConstraint(pelv_id, zero, pelvis_target_pos, pelvis_target_orientation);
+    int pelvis = CS.AddFullConstraint(pelv_id, zero, pelvis_target_pos, Matrix3dIdentity);
     CS.AddOrientationConstraint(base_link_id, RigidBodyDynamics::Math::Matrix3dIdentity);
-//    CS.AddPointConstraintXY(r_thigh_id, zero, right_thigh_target_pos);
-//    CS.AddPointConstraintXY(l_thigh_id, zero, left_thigh_target_pos);
-    CS.AddPointConstraint(r_foot_id, zero, right_foot_target_pos);
-    CS.AddPointConstraint(l_foot_id, zero, left_foot_target_pos);
+    CS.AddFullConstraint(r_foot_id, Vector3d(0.0, 0.0, -0.1), right_foot_target_pos, right_foot_target_orientation);
+    CS.AddFullConstraint(l_foot_id, Vector3d(0.0, 0.0, -0.1), left_foot_target_pos, left_foot_target_orientation);
 
     //Prepare animation output
     std::ofstream of("animation.csv");
@@ -110,6 +113,8 @@ int main(int argc, char *argv[]) {
         if (!ret) {
             std::cout << "InverseKinematics did not find a solution" << std::endl;
         }
+        RigidBodyDynamics::Utils::CalcCenterOfMass(humanoid, q_res, qd, NULL ,mass, com);
+        q_init = q_res;
 
         //compute CoM for animation
         of << i / 10. << ", ";
