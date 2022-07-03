@@ -28,7 +28,7 @@ ENDIF( MUSCOD_FOUND )
 # NOTE: Here you need to add all source files that are required for your
 #       optimal control problem.
 ADD_LIBRARY ( rocketcar
-        SRC/rocketcar.cc
+		SRC/rocketcar.cc
 	)
 
 # COMMANDS TO BUILD DIRECTORY TREE #############################################

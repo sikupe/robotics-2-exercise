@@ -16,22 +16,25 @@ nshoot
 
 
 *  model stage duration start values, scale factors, and bounds
+
+* Reformulating problem for c)
+* Only 30 seconds are needed if time is not fixed and No optimization for energy takes place
 h
-0: 32.0
+0: 40.0
 
 h_sca
-0: 32.0
+0: 40.0
 
 h_min
-0: ___
+0: 0
 
 h_max
-0: ___
+0: 40.0
 
 
 *  model stage duration fixed value flags
 h_fix
-0: ___
+0: 0
 
 
 *  differential state start values, scale factors, and bounds
@@ -53,12 +56,12 @@ sd_sca(*,*)
 1: 10.0
 
 sd_min(*,*)
-0: ___
-1: ___
+0: 0
+1: 0
 
 sd_max(*,*)
-0: ___
-1: ___
+0: 300.0
+1: 30.0
 
 
 *  control parameterization types 
@@ -74,10 +77,17 @@ u_sca(*,*)
 0: 1.0
 
 u_min(*,*)
-0: ___
+0: -2.0
 
+* For c) max acceleration goes down to 0.8 and 0.5:
+* 1.) 0.8: The acceleration is longer and the change to the breaking is much steeper and faster as with 1.0
+*          Also with max acceleration 300m are not reached
+* 2.) 0.5: The acceleration curve looks again more similar to the acceleration curve of 1.0
+*          But of course with max acceleration of 0.5 also 300m were not reached. It reached about 150m and for some unknown reason to me it drove back for one step (even if this shouldn't be possible with the parameters of sd_min)
+* For d) max acceleration goes down to 0.5:
+*          The whole drive now takes ~38 seconds
 u_max(*,*)
-0: ___
+0: 0.5
 
 
 *  decoupled i.p.c. scale factors
@@ -111,7 +121,7 @@ nhist
 * Choosing libraries *
 **********************
 libmodel
-lib_______ 
+librocketcar
 
 libhessian
 hess_update
