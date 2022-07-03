@@ -1,0 +1,91 @@
+                  ___                
+This is MUSCOD-II (Release 6.0, Revision 3148) |\    /| |    | /   \ 000000        
+Copyright (C) 1995--2016, Simulation and Optimization Group |  \/  | |    | `---.       000     
+ |      |  \__/  \___/          00   
+Interdisciplinary Center for Scientific Computing (IWR)                                  00 
+Heidelberg University, Germany 00               | |              00
+ 00               | |              00
+ + MS-MINTOC extensions for mixed-integer optimal control  00              ___    ___    ___  
+ + PRSQP Partially Reduced SQP Version [ ]    00           /   \  /   \  |   \ 
+ + Algorithmic Extensions [ CLSQ LSQ ]      000       |      |     | |    |
+         000000  \___/  \___/  |___/ 
+
+Loading the following libraries dynamically:
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_prsqp_den.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_hess_update.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_tchk.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_solve_slse.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_cond_std.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_qps_qpopt.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_mssqp_standard.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_plot_pgplot.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_eval_ind.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_mintoc.so ... success.
+./libbvp4.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_ind_rkf45.so ... success.
+
+>>>>  Dimensions of structured NLP problem:
+                   # of discretization points NDIS =        21
+                               # of variables NVAR =        42
+                    # of equality constraints NEQ  =        42 (42 + 0)
+                  # of inequality constraints NIN  =        84 (0 + 42*2)
+
+>>>>  Parameters of MSSQP method:
+                final accuracy of NLP solution ACC =  1.00E-06
+                 initial integration tolerance     =  1.00E-08
+  # of homotopy steps in integration tolerance     =         0
+                   final integration tolerance TOL =  1.00E-08
+    regularization factor (as multiple of ACC)     =  0.00E+00
+    Levenberg Marquardt hessian regularization     =  0.00E+00
+                   maximum # of SQP iterations     =       100
+(no constraint relaxation)
+
+>>>>  Parameters of Hessian approximation method (BFGS update with Powell modification):
+                              initial trust radius =   1.90983
+                   initial diagonal scaling factor =   4.83686
+
+>>>>  SQP iterations
+
+ it qpit qpf   kkttol          sobj   |sinf|  |vstep|  |vstpr| |mulstp|       |lgrd|    alpha         merit crit stat
+  0                    5.000000E-01 1.00E+00
+
+
+****
+**** SQP iteration 0
+****
+(no constraint relaxation)
+  1    0 A   2.71E+00  1.711887E-04 1.85E-02 9.55E-01 0.00E+00 7.89E+01 8.000000E+00 1.00E+00  1.186699E-01  REL SUCC
+
+
+****
+**** SQP iteration 1
+****
+(no constraint relaxation)
+  2    0 A   1.12E-04  9.950511E-12 4.46E-06 2.58E-02 0.00E+00 7.86E+01 8.656225E+00 1.00E+00  2.006086E-05  STD SUCC
+
+
+****
+**** SQP iteration 2
+****
+(no constraint relaxation)
+  3    0  P  9.85E-12  1.830752E-17 6.05E-09 8.39E-06 0.00E+00 2.71E-01 3.493837E-02 1.00E+00  4.583507E-08  STD SUCC
+
+****  convergence achieved  ****
+
+>>>>  Operation counts for ODE solver RKF45S:
+                   total # of function evaluations =      2552
+                      total # of integration steps =       212
+                         total # of rejected steps =        43
+
+>>>>  Wall time statistics:
+                      Sensitivity generation (IND) = 00:00.000 ( 4.63%)
+                      Integration of inhomogeneity = 00:00.000 ( 0.00%)
+                                 State integration = 00:00.000 ( 3.57%)
+                              Constraint reduction = 00:00.000 ( 1.86%)
+                                        Condensing = 00:00.001 (16.93%)
+                         Solution of condensed QPs = 00:00.000 ( 5.33%)
+                            Remaining calculations = 00:00.005 (67.69%)
+                                             Total = 00:00.007
+
+                                   Online graphics = 00:00.018 (73.21%)
+                                       Grand Total = 00:00.025
