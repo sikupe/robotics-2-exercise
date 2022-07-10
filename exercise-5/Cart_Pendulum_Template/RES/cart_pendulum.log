@@ -1,0 +1,40 @@
+                  ___                
+This is MUSCOD-II (Release 6.0, Revision 3148) |\    /| |    | /   \ 000000        
+Copyright (C) 1995--2016, Simulation and Optimization Group |  \/  | |    | `---.       000     
+ |      |  \__/  \___/          00   
+Interdisciplinary Center for Scientific Computing (IWR)                                  00 
+Heidelberg University, Germany 00               | |              00
+ 00               | |              00
+ + MS-MINTOC extensions for mixed-integer optimal control  00              ___    ___    ___  
+ + PRSQP Partially Reduced SQP Version [ ]    00           /   \  /   \  |   \ 
+ + Algorithmic Extensions [ CLSQ LSQ ]      000       |      |     | |    |
+         000000  \___/  \___/  |___/ 
+
+Loading the following libraries dynamically:
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_prsqp_den.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_hess_update.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_tchk.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_solve_slse.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_cond_std.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_qps_qpopt.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_mssqp_standard.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_plot_pgplot.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_eval_ind.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_mintoc.so ... success.
+./libcart_pendulum.so ... success.
+/home/robotics2/Dev/MUSCOD_CLONE/MC2/Release/lib64/libmuscod_ind_rkf45.so ... success.
+
+>>>>  Dimensions of structured NLP problem:
+                   # of discretization points NDIS =        21
+                               # of variables NVAR =       124
+                    # of equality constraints NEQ  =       107 (88 + 19)
+                  # of inequality constraints NIN  =       248 (0 + 124*2)
+
+>>>>  Parameters of MSSQP method:
+                final accuracy of NLP solution ACC =  1.00E-05
+                 initial integration tolerance     =  1.00E-07
+  # of homotopy steps in integration tolerance     =         0
+                   final integration tolerance TOL =  1.00E-07
+    regularization factor (as multiple of ACC)     =  0.00E+00
+    Levenberg Marquardt hessian regularization     =  0.00E+00
+                   maximum # of SQP iterations     =      1000

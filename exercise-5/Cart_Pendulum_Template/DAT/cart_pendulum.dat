@@ -27,7 +27,7 @@ h_max
   0:   5.0
 
 h_fix
-  0: ___
+  0: 1
 
 h_name
   0: swing_phase
@@ -130,7 +130,7 @@ nhist
 * Choosing libraries *
 **********************
 libmodel
-lib_____
+libcart_pendulum
 
 libhessian
 hess_update

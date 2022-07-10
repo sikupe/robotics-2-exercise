@@ -4,7 +4,7 @@ require 'SRC.strict'
 
 function get_sphere_inertia (mass, radius)
     local val
-    val = ____
+    val = 2/5 * mass * radius -- Source Theoretische Physik, Bartelmann et al. p 147
     return {
         {val, 0.0, 0.0},
         {0.0, val, 0.0},
@@ -14,9 +14,9 @@ end
 
 function get_box_inertia (mass, width, height, depth)
     local valx, valy, valz
-    valx = ___
-    valy = ___
-    valz = ___
+    valx = 1/12 * mass * (height ^ 2 + depth ^ 2) -- Source Theoretische Physik, Bartelmann et al. p 147
+    valy = 1/12 * mass * (width ^ 2 + depth ^ 2) -- Source Theoretische Physik, Bartelmann et al. p 147
+    valz = 1/12 * mass * (width ^ 2 + height ^ 2) -- Source Theoretische Physik, Bartelmann et al. p 147
     return {
         {valx,  0.0,  0.0},
         { 0.0, valy,  0.0},
@@ -26,17 +26,17 @@ end
 
 -- define some constants
 
-cart_w = ____ -- x-axis
-cart_d = ____ -- y-axis
-cart_h = ____ -- z-axis
-cart_m = ____
+cart_w = 0.5 -- x-axis
+cart_d = 0.2 -- y-axis
+cart_h = 0.2 -- z-axis
+cart_m = 10.0
 cart_com = {
     0.0, 0.0, -cart_h/4.0
 }
 
-pend_l = ____
-pend_r = ____
-pend_m = ____
+pend_l = 0.5
+pend_r = 0.1
+pend_m = 1.0
 pend_com = {
     0.0, 0.0, pend_l
 }
@@ -44,8 +44,8 @@ pend_com = {
 -- build model
 
 bodies = {
-    cart     = {mass = ___, com = ___, inertia = ___},
-    pendulum = {mass = ___, com = ___, inertia = ___},
+    cart     = {mass = cart_m, com = cart_com, inertia = get_box_inertia(cart_m, cart_w, cart_h, cart_d)},
+    pendulum = {mass = pend_m, com = pend_com, inertia = get_sphere_inertia(pend_m, pend_r)},
 }
 
 meshes = {
@@ -99,10 +99,10 @@ meshes = {
 joints = {
     fixed = {},
     trans_x = {
-        { _, _, _, _, _, _},
+        { 1, 0, 0, 0, 0, 0},
     },
     rot_y = {
-        { _, _, _, _, _, _},
+        { 0, 0, 0, 0, 1, 0},
     },
 }
 
@@ -118,10 +118,10 @@ model = {
     frames = {
         -- acctuated cart
         {
-            name = "___",
-            parent = "___",
-            body = bodies.___,
-            joint = joints.___,
+            name = "cart",
+            parent = "ROOT",
+            body = bodies.cart,
+            joint = joints.trans_x,
             joint_frame = {
                 r = {0.5, 0.5, 0.7},
                 E = {
@@ -137,10 +137,10 @@ model = {
         },
         -- unactuated pendulum
         {
-            name = "___",
-            parent = "___",
-            body = bodies.___,
-            joint = joints.___,
+            name = "pendulum",
+            parent = "cart",
+            body = bodies.pendulum,
+            joint = joints.rot_y,
             joint_frame = {
                 r = {0.0, 0.0, 0.0},
                 E = {
