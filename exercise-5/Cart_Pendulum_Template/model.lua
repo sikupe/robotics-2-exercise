@@ -4,7 +4,7 @@ require 'SRC.strict'
 
 function get_sphere_inertia (mass, radius)
     local val
-    val = 2/5 * mass * radius -- Source Theoretische Physik, Bartelmann et al. p 147
+    val = 2/5 * mass * radius ^ 2-- Source Theoretische Physik, Bartelmann et al. p 147
     return {
         {val, 0.0, 0.0},
         {0.0, val, 0.0},
@@ -99,10 +99,10 @@ meshes = {
 joints = {
     fixed = {},
     trans_x = {
-        { 1, 0, 0, 0, 0, 0},
+        { 0, 0, 0, 1, 0, 0 },
     },
     rot_y = {
-        { 0, 0, 0, 0, 1, 0},
+        { 0, 1, 0, 0, 0, 0 },
     },
 }
 
