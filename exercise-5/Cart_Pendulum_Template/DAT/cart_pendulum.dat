@@ -26,8 +26,9 @@ h_min
 h_max
   0:   5.0
 
+* Changed for 5.2
 h_fix
-  0: 1
+  0: 0
 
 h_name
   0: swing_phase
@@ -77,14 +78,17 @@ udot(*,*)
 
 *  control scale factors and bounds
 
+* Changed for 5.2
 u_sca(*,*)
- 0: 1.0
+ 0: 10.0
 
+* Changed for 5.2
 u_min(*,*)
- 0: -150.0
+ 0: -100.0
 
+* Changed for 5.2
 u_max(*,*)
- 0:  150.0
+ 0:  100.0
 
 udot_min(*,*)
  0: -50.0

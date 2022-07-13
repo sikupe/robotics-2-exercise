@@ -268,13 +268,23 @@ void def_model(void)
     def_mdims(NMOS, NP, NRC, NRCE);
 
     // right_flat
+    // Solution for 5.1
+//    def_mstage(
+//            0,
+//            NXD, NXA, NU,
+//            NULL, lfcn_energy,   // mayer term, lagrange term
+//            0, 0, 0, NULL, ffcn, NULL,
+//            NULL, NULL
+//        );
+
+    // Solution for 5.2
     def_mstage(
             0,
             NXD, NXA, NU,
-            NULL, lfcn_energy,   // mayer term, lagrange term
+            mfcn_end_time, NULL,   // mayer term, lagrange term
             0, 0, 0, NULL, ffcn, NULL,
             NULL, NULL
-            );
+    );
 
     def_mpc(0, "s", NPR, RDFCN_S_N, RDFCN_S_NE, rdfcn_s, NULL);
     def_mpc(0, "e", NPR, RDFCN_E_N, RDFCN_E_NE, rdfcn_e, NULL);

@@ -26,9 +26,9 @@ Loading the following libraries dynamically:
 
 >>>>  Dimensions of structured NLP problem:
                    # of discretization points NDIS =        21
-                               # of variables NVAR =       124
+                               # of variables NVAR =       125
                     # of equality constraints NEQ  =       107 (88 + 19)
-                  # of inequality constraints NIN  =       248 (0 + 124*2)
+                  # of inequality constraints NIN  =       250 (0 + 125*2)
 
 >>>>  Parameters of MSSQP method:
                 final accuracy of NLP solution ACC =  1.00E-05
@@ -41,232 +41,96 @@ Loading the following libraries dynamically:
 (no constraint relaxation)
 
 >>>>  Parameters of Hessian approximation method (BFGS update with Powell modification):
-                              initial trust radius =   1926.18
-                   initial diagonal scaling factor = 0.00014692
+                              initial trust radius =   102.051
+                   initial diagonal scaling factor = 0.00113149
 
 >>>>  SQP iterations
 
  it qpit qpf   kkttol          sobj   |sinf|  |vstep|  |vstpr| |mulstp|       |lgrd|    alpha         merit crit stat
-  0                    8.325000E+01 2.21E+01
+  0                    3.700000E-03 2.21E+01
 
 
 ****
 **** SQP iteration 0
 ****
 (no constraint relaxation)
-  1    1 A   1.66E+02  4.730526E+00 9.46E+00 9.67E+02 0.00E+00 1.42E+01 2.450814E-01 1.00E+00  4.040884E+01  REL SUCC
+  1   18 A   2.41E-01  1.444348E-03 7.63E+00 5.10E+01 0.00E+00 2.29E+00 1.000000E-03 1.00E+00  6.086538E+00  REL SUCC
 
 
 ****
 **** SQP iteration 1
 ****
-(no constraint relaxation)
-  2    1 A   9.51E+00  5.746521E+00 4.96E+00 3.52E+02 0.00E+00 1.22E+01 8.153480E+00 1.00E+00  1.423305E+01  STD SUCC
+The upper constraint bound 4 is violated by more than feasibilty tolerance: UB 896.996 - var 896.996 = 1.13687e-13
+The upper constraint bound 6 is violated by more than feasibilty tolerance: UB 1151.03 - var 1151.03 = 2.27374e-13
+The upper constraint bound 7 is violated by more than feasibilty tolerance: UB -1173.53 - var -1173.53 = 0
+  2   37 A R 8.33E+00  1.102452E-03 2.84E+02 9.81E+01 0.00E+00 2.91E+02 1.461825E+00 1.00E+00  2.456795E+02  STD SUCC
 
 
 ****
 **** SQP iteration 2
 ****
+The lower constraint bound 4 is violated by more than feasibilty tolerance: var 107.768 - LB 107.768 = 8.52651e-14
+The upper constraint bound 5 is violated by more than feasibilty tolerance: UB -293.506 - var -293.506 = -5.68434e-14
+The lower constraint bound 6 is violated by more than feasibilty tolerance: var 84.2466 - LB 84.2466 = 0
+The upper constraint bound 7 is violated by more than feasibilty tolerance: UB -378.388 - var -378.388 = 0
 (no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
-  3    6 AP  8.65E+00  2.717486E+00 3.52E+00 2.60E+02 0.00E+00 8.06E+00 2.715635E+00 5.00E-01  8.992955E+00  STD SUCC
+The lower constraint bound 4 is violated by more than feasibilty tolerance: var 107.768 - LB 107.768 = -1.42109e-14
+The upper constraint bound 5 is violated by more than feasibilty tolerance: UB -293.506 - var -293.506 = 5.68434e-14
+The lower constraint bound 6 is violated by more than feasibilty tolerance: var 84.2466 - LB 84.2466 = 0
+The upper constraint bound 7 is violated by more than feasibilty tolerance: UB -378.388 - var -378.388 = 5.68434e-14
+  3   62 APR 1.37E+01  1.657865E-03 6.87E+02 2.35E+01 0.00E+00 2.01E+03 6.524710E+01 5.00E-01  6.940514E+02  STD SUCC
 
 
 ****
 **** SQP iteration 3
 ****
 (no constraint relaxation)
-  4    2 AP  3.13E+00  4.795040E+00 2.59E+00 3.14E+02 0.00E+00 5.06E+00 4.588945E+00 1.00E+00  7.221206E+00  STD SUCC
+  4   36 AP  1.95E+02  1.693609E-03 7.60E+00 7.01E+01 0.00E+00 2.19E+03 3.433894E+03 1.00E+00  1.235285E+03  STD SUCC
 
 
 ****
 **** SQP iteration 4
 ****
 (no constraint relaxation)
-  5    2 AP  4.83E+00  2.254035E+00 1.64E+00 2.25E+02 0.00E+00 6.37E+00 2.435636E+00 1.00E+00  3.781776E+00  STD SUCC
+  5   21 AP  7.36E+01  1.962259E-03 4.31E+00 8.40E+01 0.00E+00 3.70E+03 1.501904E+03 1.00E+00  2.716525E+03  STD SUCC
 
 
 ****
 **** SQP iteration 5
 ****
 (no constraint relaxation)
-  6    1  P  4.30E-01  2.714346E+00 4.57E-01 1.26E+02 0.00E+00 2.58E+00 1.712534E+00 1.00E+00  3.200986E+00  STD SUCC
+  6   11 AP  1.58E+01  2.159507E-03 2.75E-01 5.04E+01 0.00E+00 2.54E+03 3.056848E+03 1.00E+00  2.277018E+02  STD SUCC
 
 
 ****
 **** SQP iteration 6
 ****
 (no constraint relaxation)
-  7    1  P  4.36E-01  2.591521E+00 5.32E-02 8.06E+01 0.00E+00 1.90E+00 1.082301E+00 1.00E+00  2.648501E+00  STD SUCC
+  7    7 AP  1.42E-01  2.162388E-03 5.67E-03 5.18E+00 0.00E+00 1.93E+03 1.670280E+03 1.00E+00  5.989823E-01  STD SUCC
 
 
 ****
 **** SQP iteration 7
 ****
 (no constraint relaxation)
-  8    1  P  2.05E-01  2.482947E+00 1.60E-02 4.67E+01 0.00E+00 6.84E-01 6.804540E-01 1.00E+00  2.512268E+00  STD SUCC
-
-
-****
-**** SQP iteration 8
-****
-(no constraint relaxation)
-  9    1  P  1.44E-02  2.472505E+00 8.09E-04 9.67E+00 0.00E+00 2.21E-01 1.749013E-01 1.00E+00  2.473845E+00  STD SUCC
-
-
-****
-**** SQP iteration 9
-****
-(no constraint relaxation)
-
- it qpit qpf   kkttol          sobj   |sinf|  |vstep|  |vstpr| |mulstp|       |lgrd|    alpha         merit crit stat
- 10    1  P  2.31E-03  2.471250E+00 6.49E-04 4.45E+00 0.00E+00 6.03E-02 1.011788E-01 1.00E+00  2.471787E+00  STD SUCC
-
-
-****
-**** SQP iteration 10
-****
-(no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
- 11    3  P  7.84E-03  2.466302E+00 1.65E-04 7.28E+00 0.00E+00 1.39E-01 9.904800E-02 1.00E+00  2.466508E+00  STD SUCC
-
-
-****
-**** SQP iteration 11
-****
-(no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
- 12    3  P  4.14E-03  2.463797E+00 5.00E-05 5.45E+00 0.00E+00 1.10E-01 1.039449E-01 1.00E+00  2.463863E+00  STD SUCC
-
-
-****
-**** SQP iteration 12
-****
-(no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
- 13    3  P  2.52E-03  2.462227E+00 3.57E-05 4.06E+00 0.00E+00 8.36E-02 7.594604E-02 1.00E+00  2.462272E+00  STD SUCC
-
-
-****
-**** SQP iteration 13
-****
-(no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
- 14    3  P  1.38E-03  2.461351E+00 1.23E-05 2.94E+00 0.00E+00 5.93E-02 6.702528E-02 1.00E+00  2.461367E+00  STD SUCC
-
-
-****
-**** SQP iteration 14
-****
-(no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
- 15    3  P  7.76E-04  2.460851E+00 4.98E-06 2.19E+00 0.00E+00 4.50E-02 6.398833E-02 1.00E+00  2.460858E+00  STD SUCC
-
-
-****
-**** SQP iteration 15
-****
-(no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
- 16    3  P  4.50E-04  2.460561E+00 2.07E-06 1.66E+00 0.00E+00 3.44E-02 6.414649E-02 1.00E+00  2.460563E+00  STD SUCC
-
-
-****
-**** SQP iteration 16
-****
-(no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
- 17    3  P  2.62E-04  2.460391E+00 8.89E-07 1.27E+00 0.00E+00 2.64E-02 6.504775E-02 1.00E+00  2.460392E+00  STD SUCC
-
-
-****
-**** SQP iteration 17
-****
-(no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
- 18    3  P  1.52E-04  2.460293E+00 3.86E-07 9.67E-01 0.00E+00 2.02E-02 6.633521E-02 1.00E+00  2.460293E+00  STD SUCC
-
-
-****
-**** SQP iteration 18
-****
-(no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
- 19    3  P  8.81E-05  2.460236E+00 1.70E-07 7.36E-01 0.00E+00 1.53E-02 6.777850E-02 1.00E+00  2.460236E+00  STD SUCC
-
-
-****
-**** SQP iteration 19
-****
-(no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
-
- it qpit qpf   kkttol          sobj   |sinf|  |vstep|  |vstpr| |mulstp|       |lgrd|    alpha         merit crit stat
- 20    3  P  5.17E-05  2.460203E+00 7.68E-08 5.64E-01 0.00E+00 1.17E-02 6.923195E-02 1.00E+00  2.460203E+00  STD SUCC
-
-
-****
-**** SQP iteration 20
-****
-(no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
- 21    3  P  3.06E-05  2.460183E+00 3.61E-08 4.34E-01 0.00E+00 8.88E-03 7.053804E-02 1.00E+00  2.460183E+00  STD SUCC
-
-
-****
-**** SQP iteration 21
-****
-(no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
- 22    3  P  1.81E-05  2.460171E+00 1.70E-08 3.35E-01 0.00E+00 6.79E-03 7.164411E-02 1.00E+00  2.460171E+00  STD SUCC
-
-
-****
-**** SQP iteration 22
-****
-(no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
- 23    3  P  1.07E-05  2.460165E+00 7.87E-09 2.57E-01 0.00E+00 5.23E-03 7.253033E-02 1.00E+00  2.460165E+00  STD SUCC
-
-
-****
-**** SQP iteration 23
-****
-(no constraint relaxation)
-(no constraint relaxation)
-(no constraint relaxation)
- 24    3  P  6.34E-06  2.460160E+00 3.55E-09 1.98E-01 0.00E+00 4.03E-03 7.319227E-02 1.00E+00  2.460160E+00  STD SUCC
+  8    4 AP  2.08E-06  2.162457E-03 2.48E-06 2.17E-01 0.00E+00 1.49E+02 9.857000E+01 1.00E+00  2.291062E-03  STD SUCC
 
 ****  convergence achieved  ****
 
 >>>>  Operation counts for ODE solver RKF45S:
-                   total # of function evaluations =    173454
-                      total # of integration steps =      9292
-                         total # of rejected steps =      1647
+                   total # of function evaluations =     45865
+                      total # of integration steps =      1873
+                         total # of rejected steps =       377
 
 >>>>  Wall time statistics:
-                      Sensitivity generation (IND) = 00:00.289 (62.71%)
+                      Sensitivity generation (IND) = 00:00.076 (63.57%)
                       Integration of inhomogeneity = 00:00.000 ( 0.00%)
-                                 State integration = 00:00.092 (19.94%)
-                              Constraint reduction = 00:00.001 ( 0.20%)
-                                        Condensing = 00:00.031 ( 6.80%)
-                         Solution of condensed QPs = 00:00.011 ( 2.33%)
-                            Remaining calculations = 00:00.037 ( 8.02%)
-                                             Total = 00:00.461
+                                 State integration = 00:00.016 (13.65%)
+                              Constraint reduction = 00:00.000 ( 0.22%)
+                                        Condensing = 00:00.008 ( 6.62%)
+                         Solution of condensed QPs = 00:00.004 ( 3.33%)
+                            Remaining calculations = 00:00.015 (12.60%)
+                                             Total = 00:00.120
 
-                                   Online graphics = 00:09.746 (95.49%)
-                                       Grand Total = 00:10.207
+                                   Online graphics = 00:03.892 (97.00%)
+                                       Grand Total = 00:04.013
