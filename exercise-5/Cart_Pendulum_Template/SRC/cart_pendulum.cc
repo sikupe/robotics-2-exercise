@@ -105,14 +105,7 @@ static void ffcn (double *t, double *xd, double *xa, double *u,
     updateState (xd, u);
 
     // Compute Forward Dynamics with RBDL
-
-    auto cart_id = model->GetBodyId("cart");
-    ConstraintSet cs;
-    cs.AddContactConstraint(cart_id, Vector3dZero, Vector3d(0, 1, 0));
-    cs.AddContactConstraint(cart_id, Vector3dZero, Vector3d(0, 0, 1));
-    cs.Bind(*model);
-    ForwardDynamicsConstraintsDirect(*model, Q, QDOT, TAU, cs, QDDOT);
-
+    ForwardDynamics(*model, Q, QDOT, TAU, QDDOT);
 
     for (unsigned int i = 0; i < nDof; i++) {
         rhs[i]        = QDOT[i];
@@ -265,7 +258,7 @@ void def_model(void)
     assert (model->dof_count == 2);
 
     nDof = model->dof_count;
-    nActuatedDof = 1;
+    nActuatedDof = 2;
 
     Q     = VectorNd::Zero(model->dof_count);
     QDOT  = VectorNd::Zero(model->dof_count);
