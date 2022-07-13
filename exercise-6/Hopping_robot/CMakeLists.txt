@@ -20,14 +20,21 @@ ENDIF( MUSCOD_FOUND )
 
 
 
-ADD_LIBRARY ( hoppingrobot
-	SRC/hoppingrobot.cc
+ADD_LIBRARY ( hoppingrobot_lagrange
+		SRC/hoppingrobot_lagrange.cc
 	)
 
+ADD_LIBRARY ( hoppingrobot_mayer
+		SRC/hoppingrobot_mayer.cc
+		)
 
-TARGET_LINK_LIBRARIES ( hoppingrobot
+TARGET_LINK_LIBRARIES ( hoppingrobot_lagrange
 	${RBDL_LIBRARIES}
 )
+
+TARGET_LINK_LIBRARIES ( hoppingrobot_mayer
+		${RBDL_LIBRARIES}
+		)
 
 EXECUTE_PROCESS(COMMAND mkdir -p ./RES)
 EXECUTE_PROCESS(COMMAND ln -s -f ${PROJECT_SOURCE_DIR}/SRC)

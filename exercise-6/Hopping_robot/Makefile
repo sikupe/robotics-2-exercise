@@ -56,6 +56,18 @@ CMAKE_BINARY_DIR = /home/robotics2/Dev/projects/exercise-6/Hopping_robot
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -67,6 +79,18 @@ install/strip/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -99,30 +123,6 @@ list_install_components:
 list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
-
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -157,44 +157,84 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named hoppingrobot
+# Target rules for targets named hoppingrobot_mayer
 
 # Build rule for target.
-hoppingrobot: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 hoppingrobot
-.PHONY : hoppingrobot
+hoppingrobot_mayer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 hoppingrobot_mayer
+.PHONY : hoppingrobot_mayer
 
 # fast build rule for target.
-hoppingrobot/fast:
-	$(MAKE) -f CMakeFiles/hoppingrobot.dir/build.make CMakeFiles/hoppingrobot.dir/build
-.PHONY : hoppingrobot/fast
+hoppingrobot_mayer/fast:
+	$(MAKE) -f CMakeFiles/hoppingrobot_mayer.dir/build.make CMakeFiles/hoppingrobot_mayer.dir/build
+.PHONY : hoppingrobot_mayer/fast
 
-SRC/hoppingrobot.o: SRC/hoppingrobot.cc.o
+#=============================================================================
+# Target rules for targets named hoppingrobot_lagrange
 
-.PHONY : SRC/hoppingrobot.o
+# Build rule for target.
+hoppingrobot_lagrange: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 hoppingrobot_lagrange
+.PHONY : hoppingrobot_lagrange
+
+# fast build rule for target.
+hoppingrobot_lagrange/fast:
+	$(MAKE) -f CMakeFiles/hoppingrobot_lagrange.dir/build.make CMakeFiles/hoppingrobot_lagrange.dir/build
+.PHONY : hoppingrobot_lagrange/fast
+
+SRC/hoppingrobot_lagrange.o: SRC/hoppingrobot_lagrange.cc.o
+
+.PHONY : SRC/hoppingrobot_lagrange.o
 
 # target to build an object file
-SRC/hoppingrobot.cc.o:
-	$(MAKE) -f CMakeFiles/hoppingrobot.dir/build.make CMakeFiles/hoppingrobot.dir/SRC/hoppingrobot.cc.o
-.PHONY : SRC/hoppingrobot.cc.o
+SRC/hoppingrobot_lagrange.cc.o:
+	$(MAKE) -f CMakeFiles/hoppingrobot_lagrange.dir/build.make CMakeFiles/hoppingrobot_lagrange.dir/SRC/hoppingrobot_lagrange.cc.o
+.PHONY : SRC/hoppingrobot_lagrange.cc.o
 
-SRC/hoppingrobot.i: SRC/hoppingrobot.cc.i
+SRC/hoppingrobot_lagrange.i: SRC/hoppingrobot_lagrange.cc.i
 
-.PHONY : SRC/hoppingrobot.i
+.PHONY : SRC/hoppingrobot_lagrange.i
 
 # target to preprocess a source file
-SRC/hoppingrobot.cc.i:
-	$(MAKE) -f CMakeFiles/hoppingrobot.dir/build.make CMakeFiles/hoppingrobot.dir/SRC/hoppingrobot.cc.i
-.PHONY : SRC/hoppingrobot.cc.i
+SRC/hoppingrobot_lagrange.cc.i:
+	$(MAKE) -f CMakeFiles/hoppingrobot_lagrange.dir/build.make CMakeFiles/hoppingrobot_lagrange.dir/SRC/hoppingrobot_lagrange.cc.i
+.PHONY : SRC/hoppingrobot_lagrange.cc.i
 
-SRC/hoppingrobot.s: SRC/hoppingrobot.cc.s
+SRC/hoppingrobot_lagrange.s: SRC/hoppingrobot_lagrange.cc.s
 
-.PHONY : SRC/hoppingrobot.s
+.PHONY : SRC/hoppingrobot_lagrange.s
 
 # target to generate assembly for a file
-SRC/hoppingrobot.cc.s:
-	$(MAKE) -f CMakeFiles/hoppingrobot.dir/build.make CMakeFiles/hoppingrobot.dir/SRC/hoppingrobot.cc.s
-.PHONY : SRC/hoppingrobot.cc.s
+SRC/hoppingrobot_lagrange.cc.s:
+	$(MAKE) -f CMakeFiles/hoppingrobot_lagrange.dir/build.make CMakeFiles/hoppingrobot_lagrange.dir/SRC/hoppingrobot_lagrange.cc.s
+.PHONY : SRC/hoppingrobot_lagrange.cc.s
+
+SRC/hoppingrobot_mayer.o: SRC/hoppingrobot_mayer.cc.o
+
+.PHONY : SRC/hoppingrobot_mayer.o
+
+# target to build an object file
+SRC/hoppingrobot_mayer.cc.o:
+	$(MAKE) -f CMakeFiles/hoppingrobot_mayer.dir/build.make CMakeFiles/hoppingrobot_mayer.dir/SRC/hoppingrobot_mayer.cc.o
+.PHONY : SRC/hoppingrobot_mayer.cc.o
+
+SRC/hoppingrobot_mayer.i: SRC/hoppingrobot_mayer.cc.i
+
+.PHONY : SRC/hoppingrobot_mayer.i
+
+# target to preprocess a source file
+SRC/hoppingrobot_mayer.cc.i:
+	$(MAKE) -f CMakeFiles/hoppingrobot_mayer.dir/build.make CMakeFiles/hoppingrobot_mayer.dir/SRC/hoppingrobot_mayer.cc.i
+.PHONY : SRC/hoppingrobot_mayer.cc.i
+
+SRC/hoppingrobot_mayer.s: SRC/hoppingrobot_mayer.cc.s
+
+.PHONY : SRC/hoppingrobot_mayer.s
+
+# target to generate assembly for a file
+SRC/hoppingrobot_mayer.cc.s:
+	$(MAKE) -f CMakeFiles/hoppingrobot_mayer.dir/build.make CMakeFiles/hoppingrobot_mayer.dir/SRC/hoppingrobot_mayer.cc.s
+.PHONY : SRC/hoppingrobot_mayer.cc.s
 
 # Help Target
 help:
@@ -202,16 +242,20 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... install/local"
+	@echo "... hoppingrobot_mayer"
 	@echo "... install/strip"
+	@echo "... hoppingrobot_lagrange"
+	@echo "... install"
 	@echo "... edit_cache"
-	@echo "... hoppingrobot"
 	@echo "... rebuild_cache"
 	@echo "... list_install_components"
-	@echo "... install/local"
-	@echo "... install"
-	@echo "... SRC/hoppingrobot.o"
-	@echo "... SRC/hoppingrobot.i"
-	@echo "... SRC/hoppingrobot.s"
+	@echo "... SRC/hoppingrobot_lagrange.o"
+	@echo "... SRC/hoppingrobot_lagrange.i"
+	@echo "... SRC/hoppingrobot_lagrange.s"
+	@echo "... SRC/hoppingrobot_mayer.o"
+	@echo "... SRC/hoppingrobot_mayer.i"
+	@echo "... SRC/hoppingrobot_mayer.s"
 .PHONY : help
 
 
